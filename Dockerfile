@@ -31,3 +31,5 @@ RUN mvn clean install -DskipTests -Dliquibase.skip
 FROM openjdk:8-slim
 
 COPY --from=java-builder /opt/simple-vote/service/target/simplevote.jar /opt/simplevote.jar
+COPY run.sh /run.sh
+CMD ['/bin/bash','/run.sh']

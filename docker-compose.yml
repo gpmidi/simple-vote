@@ -9,7 +9,6 @@ services:
       POSTGRES_DB: simplevote
   simple_vote:
     build: .
-    command: "bash -c 'sleep 7s; java -jar /opt/simplevote.jar -liquibase'"
     depends_on:
       - simple_vote_db
     ports:
