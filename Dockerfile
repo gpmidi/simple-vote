@@ -28,8 +28,14 @@ COPY --from=node-builder /opt/simple-vote/ui/dist /opt/simple-vote/service/src/m
 WORKDIR /opt/simple-vote/service
 RUN mvn clean install -DskipTests -Dliquibase.skip
 
+
 FROM openjdk:8-slim
 
 COPY --from=java-builder /opt/simple-vote/service/target/simplevote.jar /opt/simplevote.jar
 COPY run.sh /run.sh
+
+# Expose our web port
+EXPOSE 4567
+
+# Run the start script
 CMD ['/bin/bash','/run.sh']
