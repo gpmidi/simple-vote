@@ -38,4 +38,4 @@ COPY run.sh /run.sh
 EXPOSE 4567
 
 # Run the start script
-CMD ['/bin/bash','/run.sh']
+CMD /bin/bash /run.sh
