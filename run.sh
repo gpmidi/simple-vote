@@ -5,7 +5,7 @@ set -x
 if [[ -z "${DATABASE_URL}" ]]; then
   export SIMPLEVOTE_DB_URL=$DATABASE_URL
 
-  cat > /opt/simple-vote/service/simplevote.properties << EOF
+  cat > /opt/simplevote.properties << EOF
 jdbc.url="jdbc:$DATABASE_URL"
 version=1.0.0
 activejdbc.version=1.4.13
@@ -16,7 +16,7 @@ fi
 
 sleep 7s
 
-cd /opt/simple-vote/service
+cd /opt
 java -jar /opt/simplevote.jar -liquibase
 
 # graceful exit - probably won't ever get here
