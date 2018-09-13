@@ -1,1 +1,5 @@
+# Intellij files
+*.iml
 .idea/
+# Misc local scripts
+gp*.sh
